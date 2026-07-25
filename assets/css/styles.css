@@ -297,7 +297,7 @@ a{color:inherit;text-decoration:none}
 .craft-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .craft-vis .cap{position:absolute;left:24px;bottom:22px;right:24px;z-index:2}
 .craft-vis .cap .k{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
-  color:#C4C9CF;font-weight:600;margin-bottom:8px}
+  color:#C4C9CF;font-weight:600;margin-bottom:3px}
 .craft-vis .cap .v{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:#ECEEF1}
 .craft h2{font-size:clamp(1.9rem,4vw,3rem);margin:16px 0 24px;font-weight:360}
 .craft h2 em{font-style:italic;color:var(--gold-lite)}
