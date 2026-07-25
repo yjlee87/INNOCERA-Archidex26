@@ -6,15 +6,12 @@ Untitled*.png
 *.b64
 .DS_Store
 
-# raw source assets — kept local only; optimised copies live in /assets/images
+# raw source assets dropped at repo root — kept local only; optimised copies live in /assets/images
+# (real site images all live under assets/, so ignore every root-level image + screenshots)
 /*.pdf
-/783.jpg
-/MTC-128.jpg
-/WC1011-2.jpg
-/wc1011-1.png
-/PWB2001-1.png
-/PWB2001-2.jpg
-/UB4011.png
-/UB4011.png
-/Faucet2.png
-/Faucet3.png
+/*.png
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.JPEG
+Screenshot*.png
