@@ -517,7 +517,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
 /* faucets & fittings */
 .fb-fittings{padding-block:clamp(52px,8vw,100px);background:var(--bg-2);border-top:1px solid var(--line-soft)}
-.fb-tap-feature{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,64px);align-items:center;
+.fb-tap-feature{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,64px);align-items:start;
   padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid var(--line-soft)}
 .fb-tap-info .fb-desc{margin-bottom:22px}
 .fb-colourway{display:grid;grid-template-columns:1fr 1fr;gap:16px}
