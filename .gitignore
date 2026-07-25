@@ -5,3 +5,14 @@ Untitled*.png
 2ff16b1f-*.jpeg
 *.b64
 .DS_Store
+
+# raw source assets — kept local only; optimised copies live in /assets/images
+/*.pdf
+/783.jpg
+/MTC-128.jpg
+/WC1011-2.jpg
+/wc1011-1.png
+/PWB2001-1.png
+/PWB2001-2.jpg
+/UB4011.png
+/UB4011.png
