@@ -550,3 +550,12 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .fb-acc-img{height:auto;min-height:210px}
   .fb-acc h4{min-height:0}
 }
+
+/* still waters — engineering feature banner */
+.sw-band{background:var(--bg-2);border-top:1px solid var(--line-soft);
+  padding-block:clamp(46px,7vw,86px)}
+.sw-band .fb-sec-head{margin-bottom:clamp(26px,4vw,40px)}
+.sw-band figure{margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line-soft);
+  box-shadow:0 30px 60px -44px rgba(0,0,0,.8)}
+.sw-band figure img{width:100%;height:auto;display:block}
+.sw-band .sw-note{margin-top:16px;color:var(--ink-faint);font-size:.82rem;letter-spacing:.02em}
