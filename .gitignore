@@ -1,0 +1,7 @@
+# local dev only
+.claude/
+# loose source images (originals kept locally, optimized copies live in assets/)
+Untitled*.png
+2ff16b1f-*.jpeg
+*.b64
+.DS_Store
