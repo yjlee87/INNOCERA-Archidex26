@@ -213,6 +213,10 @@
             </div>
 
             <span class="mp-stage-tag">EO21 &middot; Illustrative render</span>
+            <button class="mp-see" type="button" data-lb="0">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.6" cy="10" r="1.6"/><path d="M21 15.6l-5.4-5-6.2 6.4"/></svg>
+              See it installed
+            </button>
           </div>
         </div>
 
@@ -292,6 +296,10 @@
             </div>
 
             <span class="mp-stage-tag">EO30-70 &middot; Illustrative render</span>
+            <button class="mp-see" type="button" data-lb="1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.6" cy="10" r="1.6"/><path d="M21 15.6l-5.4-5-6.2 6.4"/></svg>
+              See it installed
+            </button>
           </div>
         </div>
 
@@ -313,6 +321,52 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- SEEN IN THE ROOM — simulated installation plates -->
+  <section class="mp-insitu" id="in-the-room">
+    <div class="wrap">
+      <div class="fb-sec-head rv">
+        <div class="sec-num">Seen in the room</div>
+        <h2>The same two pieces, <em>on a wall.</em></h2>
+      </div>
+      <p class="lead">Everything above is drawn live in the browser &mdash; the screens, the light temperatures, the hologram. These two plates do the other job: they show the proportion, the frame and how much of a room a mirror this size gives back.</p>
+
+      <div class="mp-plates">
+        <button class="mp-plate" type="button" data-lb="0" style="--c:#8FD3D0"
+                aria-label="Enlarge the EO21 installation visual">
+          <span class="shot">
+            <img src="/assets/images/mirror-pool/eo21-insitu.jpg" width="765" height="1024" loading="lazy"
+                 alt="EO21 full-height mirror in a slim frame leaning against a pale wall on a wooden floor, its screen playing a fitness class, a rolled yoga mat and dumbbells beside it">
+            <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3M11 8.2v5.6M8.2 11h5.6"/></svg></span>
+          </span>
+          <span class="cap">
+            <span class="m">EO21</span>
+            <b>Fitness &amp; Fitting Magic Mirror</b>
+            <p>1500 mm of glass in a slim metal frame. The screen sits at standing eye level for a class; everything around it stays a full-length mirror.</p>
+          </span>
+        </button>
+
+        <button class="mp-plate" type="button" data-lb="1" style="--c:#C7A253"
+                aria-label="Enlarge the EO30-70 installation visual">
+          <span class="shot">
+            <img src="/assets/images/mirror-pool/eo30-70-insitu.jpg" width="791" height="1024" loading="lazy"
+                 alt="EO30-70 round mirror on a plain white wall, its holographic fan projecting a luminous blue and magenta three-dimensional graphic in mid-air">
+            <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3M11 8.2v5.6M8.2 11h5.6"/></svg></span>
+          </span>
+          <span class="cap">
+            <span class="m">EO30-70</span>
+            <b>Holographic Advertising Mirror</b>
+            <p>A 700 mm disc reading as an ordinary round mirror until the fan runs &mdash; then the image stands off the glass and owns the wall.</p>
+          </span>
+        </button>
+      </div>
+
+      <p class="mp-disclaim">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.4M12 7.9h.01"/></svg>
+        <span>Simulated visuals &mdash; produced to show scale, framing and effect in a real interior, not photographs of a finished unit. Working samples of both mirrors will be on the stand at ARCHIDEX 2026.</span>
+      </p>
     </div>
   </section>
 
@@ -493,6 +547,24 @@
     </div>
   </footer>
 
+  <!-- LIGHTBOX for the installation plates -->
+  <div class="mp-lb" id="mpLb" role="dialog" aria-modal="true" aria-label="Installation visual" hidden>
+    <figure class="mp-lb-fig">
+      <button class="mp-lb-close" type="button" id="mpLbClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <img id="mpLbImg" src="" alt="">
+      <figcaption>
+        <div class="m" id="mpLbModel"></div>
+        <p id="mpLbCap"></p>
+      </figcaption>
+      <div class="mp-lb-nav">
+        <button class="mp-lb-dot" type="button" data-lb="0" aria-label="Show EO21"></button>
+        <button class="mp-lb-dot" type="button" data-lb="1" aria-label="Show EO30-70"></button>
+      </div>
+    </figure>
+  </div>
+
 </div>
 <script src="/assets/js/main.js"></script>
 <script>
@@ -545,6 +617,87 @@
       });
     }
   }
+
+  /* ---- installation plates: lightbox ---- */
+  (function(){
+    var lb = document.getElementById('mpLb');
+    if(!lb) return;
+    var plates = Array.prototype.slice.call(document.querySelectorAll('.mp-plate'));
+    if(!plates.length) return;
+
+    var imgEl   = document.getElementById('mpLbImg');
+    var modelEl = document.getElementById('mpLbModel');
+    var capEl   = document.getElementById('mpLbCap');
+    var closeEl = document.getElementById('mpLbClose');
+    var dots    = Array.prototype.slice.call(lb.querySelectorAll('.mp-lb-dot'));
+
+    /* the plates are the single source of truth for image + caption */
+    var shots = plates.map(function(p){
+      var im = p.querySelector('img');
+      return {
+        src: im.getAttribute('src'),
+        alt: im.getAttribute('alt'),
+        model: p.querySelector('.cap .m').textContent,
+        cap: p.querySelector('.cap p').textContent
+      };
+    });
+
+    var current = 0, opener = null;
+
+    function show(i){
+      current = (i + shots.length) % shots.length;
+      var s = shots[current];
+      imgEl.src = s.src;
+      imgEl.alt = s.alt;
+      modelEl.textContent = s.model;
+      capEl.textContent = s.cap;
+      dots.forEach(function(d, n){ d.setAttribute('aria-current', n === current ? 'true' : 'false'); });
+    }
+
+    function open(i, from){
+      opener = from || null;
+      show(i);
+      lb.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      closeEl.focus();
+    }
+
+    function close(){
+      lb.hidden = true;
+      document.documentElement.style.overflow = '';
+      if(opener){ opener.focus(); opener = null; }
+    }
+
+    /* every plate and every "See it installed" link opens the matching shot */
+    document.querySelectorAll('[data-lb]').forEach(function(el){
+      if(el.classList.contains('mp-lb-dot')) return;
+      el.addEventListener('click', function(){ open(parseInt(el.dataset.lb, 10) || 0, el); });
+    });
+
+    dots.forEach(function(d){
+      d.addEventListener('click', function(){ show(parseInt(d.dataset.lb, 10) || 0); });
+    });
+
+    closeEl.addEventListener('click', close);
+    lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+
+    document.addEventListener('keydown', function(e){
+      if(lb.hidden) return;
+      if(e.key === 'Escape'){ e.preventDefault(); close(); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); show(current + 1); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); show(current - 1); }
+      /* keep tabbing inside the dialog */
+      if(e.key === 'Tab'){
+        var f = [closeEl].concat(dots);
+        var i = f.indexOf(document.activeElement);
+        var n = e.shiftKey ? i - 1 : i + 1;
+        if(i === -1 || n < 0 || n >= f.length){
+          e.preventDefault();
+          f[e.shiftKey ? f.length - 1 : 0].focus();
+        }
+      }
+    });
+  })();
 
   /* ---- EO30-70: mirror / hologram ---- */
   var round = document.getElementById('eo30Mirror');
