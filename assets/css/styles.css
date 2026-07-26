@@ -687,3 +687,277 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .ql-stage.flash .bloom{animation:none}
   .ql-strip span,.ql-card,.ql-card .sw img,.ql-dot{transition:none}
 }
+
+/* ===================================================================
+   MIRROR POOL — interactive mirrors (EO21 · EO30-70)
+   Product visuals are hand-built renders: no photography of the pieces
+   exists yet, so the mirrors, screens and hologram are drawn in CSS/SVG.
+   =================================================================== */
+.mp{--cct-rgb:255 226 196;--dim:.85}
+
+/* hero panel — cool silver-teal instead of First Broom's playful mix */
+.mp-panel{background:
+  radial-gradient(120% 90% at 6% 2%, rgba(126,196,206,.15), transparent 44%),
+  radial-gradient(115% 95% at 98% 100%, rgba(199,162,83,.13), transparent 48%),
+  linear-gradient(155deg,#102523,#0A1312)}
+.mp-hero-figure img{object-position:center 56%;
+  filter:brightness(.72) contrast(1.06) saturate(.62) sepia(.10) hue-rotate(-8deg)}
+.mp-hero-figure::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(200deg, rgba(11,20,19,.32), transparent 42%, rgba(11,20,19,.62))}
+
+/* ---------- showpiece shell ---------- */
+.mp-show{padding-block:clamp(54px,8vw,102px);border-top:1px solid var(--line-soft)}
+.mp-show.alt{background:var(--bg-2)}
+.mp-show-in{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(30px,5vw,68px);align-items:start}
+/* not sticky: the stage is taller than the viewport, so pinning it would put
+   the controls permanently below the fold */
+.mp-col-vis{display:flex;flex-direction:column}
+.mp-info .fb-model{margin-bottom:14px}
+.mp-info h3{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:400;
+  line-height:1.04;margin-bottom:8px}
+.mp-info h3 em{font-style:italic;color:var(--gold-lite)}
+.mp-kicker{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
+.mp-info .fb-desc{max-width:50ch}
+.mp-info .fb-spec-list{margin-top:6px}
+
+/* ---------- stage ---------- */
+.mp-stage{position:relative;display:flex;flex-direction:column;align-items:center;
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  padding:clamp(26px,4vw,46px) 20px clamp(22px,3vw,34px);
+  background:linear-gradient(172deg,#122422 0%,#0A1312 68%);
+  box-shadow:0 44px 90px -62px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.035)}
+/* light the LED throws on the wall behind */
+.mp-stage .cast{position:absolute;left:50%;top:4%;transform:translateX(-50%);
+  width:min(94%,540px);height:82%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side, rgb(var(--cct-rgb)/calc(var(--dim)*.26)), transparent 74%);
+  filter:blur(22px);transition:background .55s var(--ease)}
+.mp-stage .floor{position:absolute;left:0;right:0;bottom:0;height:26%;pointer-events:none;
+  background:linear-gradient(to top, rgba(0,0,0,.5), transparent)}
+.mp-stage-tag{position:relative;z-index:3;margin-top:18px;font-family:var(--sans);font-size:.58rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;
+  font-variant-numeric:tabular-nums}
+
+/* ---------- the mirror itself ---------- */
+.mp-mirror{position:relative;z-index:2;overflow:hidden;
+  background:linear-gradient(163deg,#33434B 0%,#18242A 34%,#22323A 62%,#111A1E 100%);
+  box-shadow:
+    0 0 0 7px #14191B,
+    0 0 0 8px rgba(255,255,255,.08),
+    0 42px 74px -36px rgba(0,0,0,.92),
+    0 0 62px 4px rgb(var(--cct-rgb)/calc(var(--dim)*.26));
+  transition:box-shadow .55s var(--ease)}
+.mp-mirror-tall{width:min(100%,248px);aspect-ratio:1/3;border-radius:13px}
+.mp-mirror-round{width:min(100%,382px);aspect-ratio:1/1;border-radius:50%;
+  box-shadow:0 0 0 8px #14191B, 0 0 0 9px rgba(255,255,255,.08),
+    0 42px 74px -36px rgba(0,0,0,.92)}
+
+/* glass: sheen + reflected room */
+.mp-glass{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(112deg, rgba(255,255,255,.14) 0 7%, rgba(255,255,255,.03) 19% 46%,
+      rgba(255,255,255,.09) 53% 60%, transparent 76%),
+    radial-gradient(130% 58% at 26% -6%, rgba(206,228,232,.15), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), transparent 24%, rgba(0,0,0,.34))}
+/* what the glass is reflecting: doorway light, a warm lamp, the basin and tap below */
+.mp-room{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mp-room i{position:absolute;display:block}
+.mp-room .r2{left:6%;top:3%;width:16%;height:93%;filter:blur(10px);
+  background:linear-gradient(180deg,rgba(226,238,240,.17),rgba(226,238,240,.02) 68%)}
+.mp-room .r3{right:7%;top:52%;width:34%;height:19%;border-radius:50%;filter:blur(13px);
+  background:radial-gradient(closest-side,rgba(233,190,120,.34),transparent)}
+.mp-room .r1{left:17%;right:17%;bottom:8%;height:8.5%;filter:blur(3.5px);
+  border-radius:46% 46% 16% 16%/74% 74% 26% 26%;
+  background:linear-gradient(180deg,rgba(228,238,239,.44),rgba(228,238,239,.09))}
+.mp-room .r4{left:7%;right:7%;bottom:7.2%;height:2px;filter:blur(2.4px);
+  background:linear-gradient(90deg,transparent,rgba(226,238,240,.32) 22%,rgba(226,238,240,.32) 78%,transparent)}
+.mp-room .r5{left:50%;bottom:15.5%;width:3px;height:6.5%;transform:translateX(-50%);filter:blur(1.7px);
+  border-radius:2px;background:linear-gradient(180deg,rgba(232,242,243,.55),rgba(232,242,243,.08))}
+.mp-mirror-round .mp-room .r1{bottom:16%;height:13%}
+.mp-mirror-round .mp-room .r4{bottom:14.5%}
+.mp-mirror-round .mp-room .r5{bottom:27%;height:11%}
+.mp-mirror-round .mp-room .r2{left:12%;top:8%;height:70%}
+
+/* LED edge light (tri-colour, dimmable) */
+.mp-edge{position:absolute;inset:1.7% 4%;border-radius:8px;pointer-events:none;
+  border:1px solid rgb(var(--cct-rgb)/calc(var(--dim)*.5));
+  box-shadow:0 0 20px rgb(var(--cct-rgb)/calc(var(--dim)*.32)),
+    inset 0 0 26px rgb(var(--cct-rgb)/calc(var(--dim)*.16));
+  transition:border-color .55s var(--ease),box-shadow .55s var(--ease)}
+.mp-led{position:absolute;left:50%;bottom:1.6%;transform:translateX(-50%);z-index:3;
+  width:5px;height:5px;border-radius:50%;background:rgb(var(--cct-rgb));
+  box-shadow:0 0 11px rgb(var(--cct-rgb)/.9);transition:background .55s var(--ease)}
+
+/* ---------- the 32" screen ---------- */
+.mp-screen{position:absolute;left:8%;right:8%;top:5.5%;aspect-ratio:9/16;z-index:2;
+  border-radius:6px;overflow:hidden;background:#04080B;
+  container-type:size;
+  line-height:1.3;color:#E7F2F1;border-radius:3px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.055), 0 0 34px rgba(0,0,0,.6);
+  transition:background .5s var(--ease),box-shadow .5s var(--ease)}
+/* screen off: the panel disappears completely into the glass */
+.mp-mirror[data-app="off"] .mp-screen{background:transparent;box-shadow:none}
+/* the screen is the query container, so the UI type scales with the mirror.
+   Set here, not on .mp-screen: an element cannot query its own container. */
+.mp-app{position:absolute;inset:0;opacity:0;visibility:hidden;overflow:hidden;
+  padding:7% 8%;display:flex;flex-direction:column;
+  font-size:11px;font-size:clamp(8.5px,5.5cqw,15px);
+  transition:opacity .45s var(--ease),visibility .45s var(--ease)}
+.mp-app.is-on{opacity:1;visibility:visible}
+.mp-scr-top{display:flex;align-items:center;justify-content:space-between;gap:.6em;
+  font-size:.62em;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  color:rgba(231,242,241,.62);font-variant-numeric:tabular-nums}
+.mp-scr-top svg{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-.12em}
+
+/* ambient / clock */
+.mp-clock{font-family:var(--serif);font-size:3.1em;line-height:1;font-weight:300;
+  margin-top:.42em;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#F2F7F6}
+.mp-clock span{opacity:.42}
+.mp-greet{font-family:var(--serif);font-style:italic;font-size:1.05em;color:#DCC085;margin-top:.35em}
+.mp-meta{margin-top:.5em;font-size:.68em;letter-spacing:.06em;color:rgba(231,242,241,.6);
+  font-variant-numeric:tabular-nums}
+.mp-list{margin-top:1em;border-top:1px solid rgba(255,255,255,.11)}
+.mp-list div{display:flex;gap:.65em;align-items:baseline;padding:.44em 0;
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.mp-list b{font-size:.7em;font-weight:600;color:#DCC085;letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;min-width:3.4em}
+.mp-list span{font-size:.68em;color:rgba(231,242,241,.72)}
+.mp-dock{margin-top:auto;padding-top:.9em;display:flex;gap:.42em}
+.mp-dock i{flex:1;aspect-ratio:1;max-height:2.1em;border-radius:.28em;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  display:flex;align-items:center;justify-content:center}
+.mp-dock svg{width:56%;height:56%;stroke:rgba(231,242,241,.72);fill:none;stroke-width:1.9;
+  stroke-linecap:round;stroke-linejoin:round}
+.mp-dock i:first-child{background:rgba(199,162,83,.2);border-color:rgba(199,162,83,.44)}
+.mp-dock i:first-child svg{stroke:#E9CE93}
+
+/* fitness */
+.mp-pose{margin:.5em 0 0;flex:1;display:flex;align-items:center;justify-content:center}
+.mp-pose svg{width:74%;height:auto;max-height:100%;display:block}
+.mp-timer{font-family:var(--serif);font-size:2.1em;line-height:1;font-weight:300;
+  font-variant-numeric:tabular-nums;color:#F2F7F6}
+.mp-bar{height:.32em;border-radius:100px;background:rgba(255,255,255,.12);margin:.6em 0 .7em;overflow:hidden}
+.mp-bar i{display:block;height:100%;border-radius:100px;
+  background:linear-gradient(90deg,#5FE3D0,#DCC085)}
+.mp-stats{display:flex;gap:.5em}
+.mp-stats div{flex:1;border-top:1px solid rgba(255,255,255,.12);padding-top:.4em}
+.mp-stats b{display:block;font-family:var(--sans);font-size:.95em;font-weight:600;
+  font-variant-numeric:tabular-nums;color:#F2F7F6}
+.mp-stats span{font-size:.56em;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(231,242,241,.52)}
+
+/* health */
+.mp-ring{margin:.55em auto .2em;width:58%}
+.mp-ring svg{width:100%;height:auto;display:block}
+.mp-ring-v{font-family:var(--sans);font-size:1.5em;font-weight:600;fill:#F2F7F6;
+  font-variant-numeric:tabular-nums}
+.mp-ring-l{font-size:.62em;letter-spacing:.14em;fill:rgba(231,242,241,.55);font-weight:600}
+.mp-rows{margin-top:.35em}
+.mp-rows div{display:flex;align-items:baseline;justify-content:space-between;gap:.5em;
+  padding:.36em 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.mp-rows dt,.mp-rows dd{margin:0}
+.mp-rows dt{font-size:.6em;letter-spacing:.12em;text-transform:uppercase;color:rgba(231,242,241,.5);
+  font-weight:600}
+.mp-rows dd{font-size:.86em;font-weight:600;font-variant-numeric:tabular-nums;color:#F2F7F6}
+.mp-chart-h{margin-top:auto;padding-top:1em;font-size:.6em;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(231,242,241,.5);font-weight:600}
+.mp-chart{margin-top:.5em;display:flex;align-items:flex-end;gap:.28em;height:2.8em}
+.mp-chart i{flex:1;border-radius:.14em .14em 0 0;background:rgba(95,227,208,.34);display:block}
+.mp-chart i.hi{background:linear-gradient(180deg,#5FE3D0,rgba(95,227,208,.35))}
+.mp-days{display:flex;gap:.28em;margin-top:.35em}
+.mp-days span{flex:1;text-align:center;font-size:.54em;letter-spacing:.06em;font-weight:600;
+  color:rgba(231,242,241,.42)}
+
+/* ---------- holographic fan (EO30-70) ---------- */
+.mp-holo{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;
+  transition:opacity .6s var(--ease)}
+.mp-mirror-round[data-mode="holo"] .mp-holo{opacity:1}
+.mp-mirror-round[data-mode="holo"] .mp-room{opacity:.18}
+.mp-fan{position:absolute;left:50%;top:50%;width:84%;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:conic-gradient(from 0deg,
+    rgba(95,227,208,0) 0deg, rgba(95,227,208,.16) 20deg, rgba(95,227,208,0) 44deg,
+    rgba(220,192,133,0) 116deg, rgba(220,192,133,.12) 136deg, rgba(220,192,133,0) 162deg,
+    rgba(95,227,208,0) 236deg, rgba(95,227,208,.13) 258deg, rgba(95,227,208,0) 284deg);
+  animation:mpFan 1.5s linear infinite}
+@keyframes mpFan{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.mp-holo-art{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:60%;text-align:center;color:#7CF0DC;
+  filter:drop-shadow(0 0 14px rgba(95,227,208,.55));animation:mpFloat 5.5s ease-in-out infinite}
+@keyframes mpFloat{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,-54%)}}
+.mp-holo-art svg{width:34%;height:auto;margin:0 auto 9%;display:block}
+.mp-holo-word{font-family:var(--serif);font-size:clamp(1rem,4.4cqw,1.5rem);letter-spacing:.22em;
+  line-height:1;text-transform:uppercase}
+.mp-holo-sub{font-family:var(--sans);font-size:clamp(.5rem,2cqw,.66rem);letter-spacing:.3em;
+  text-transform:uppercase;margin-top:.9em;color:rgba(220,192,133,.9)}
+.mp-scan{position:absolute;inset:0;border-radius:50%;pointer-events:none;mix-blend-mode:screen;
+  opacity:.45;background:repeating-linear-gradient(0deg,
+    rgba(255,255,255,.055) 0 1px, transparent 1px 4px)}
+.mp-mirror-round{container-type:inline-size}
+
+/* ---------- controls ---------- */
+.mp-controls{position:relative;z-index:3;display:flex;flex-direction:column;gap:16px;
+  width:100%;max-width:430px;margin-top:clamp(22px,3vw,32px)}
+.mp-ctl{border:1px solid var(--line);border-radius:6px;padding:14px 16px 16px;
+  background:rgba(255,255,255,.02);backdrop-filter:blur(6px)}
+.mp-ctl-h{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:600;margin-bottom:11px}
+.mp-tabs{display:flex;gap:7px;flex-wrap:wrap}
+.mp-tab{flex:1 1 auto;min-width:5.9em;min-height:44px;cursor:pointer;font:inherit;
+  font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-dim);background:transparent;border:1px solid var(--line);border-radius:3px;
+  padding:10px 6px;transition:color .25s var(--ease),border-color .25s var(--ease),
+    background-color .25s var(--ease)}
+.mp-tab:hover{color:var(--ink);border-color:var(--ink-faint)}
+.mp-tab[aria-selected="true"],.mp-tab[aria-checked="true"]{color:#0C1413;background:var(--gold);
+  border-color:var(--gold)}
+.mp-tab small{display:block;font-size:.56rem;letter-spacing:.12em;opacity:.7;margin-top:3px;
+  font-variant-numeric:tabular-nums}
+.mp-dimmer{display:flex;align-items:center;gap:12px;margin-top:14px;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.mp-dimmer input[type=range]{flex:1;accent-color:var(--gold);min-height:24px;cursor:pointer}
+.mp-dimmer output{color:var(--ink);font-variant-numeric:tabular-nums;min-width:3.4em;text-align:right}
+
+/* ---------- technology grid ---------- */
+.mp-tech{padding-block:clamp(52px,8vw,100px);border-top:1px solid var(--line-soft)}
+.mp-tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);
+  border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;
+  margin-top:clamp(30px,4vw,46px)}
+.mp-feat{background:var(--bg);padding:26px 24px 28px;display:flex;flex-direction:column;gap:11px;
+  transition:background .35s var(--ease)}
+.mp-feat:hover{background:var(--bg-3)}
+.mp-feat svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+.mp-feat h4{font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:.01em;
+  color:var(--ink);margin:0}
+.mp-feat p{font-size:.84rem;color:var(--ink-dim);line-height:1.6;margin:0}
+.mp-feat .on{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:600;margin-top:auto;padding-top:12px;font-variant-numeric:tabular-nums}
+
+/* ---------- where it belongs ---------- */
+.mp-places{background:var(--bg-2);border-top:1px solid var(--line-soft);
+  padding-block:clamp(48px,7vw,88px)}
+.mp-place-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  margin-top:clamp(26px,4vw,40px)}
+.mp-place{border-top:1px solid var(--line);padding-top:16px}
+.mp-place .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.05rem;
+  margin-bottom:8px}
+.mp-place h4{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);margin:0 0 6px}
+.mp-place p{font-size:.8rem;color:var(--ink-faint);line-height:1.55;margin:0}
+
+@media(max-width:980px){
+  .mp-show-in{grid-template-columns:1fr;gap:34px}
+  .mp-col-vis{position:static;display:flex;flex-direction:column;align-items:center}
+  .mp-tech-grid{grid-template-columns:repeat(2,1fr)}
+  .mp-place-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .mp-tech-grid{grid-template-columns:1fr}
+  .mp-place-grid{grid-template-columns:1fr}
+  .mp-mirror-tall{width:min(72%,210px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .mp-fan,.mp-holo-art{animation:none}
+  .mp-app,.mp-mirror,.mp-edge,.mp-stage .cast{transition:none}
+}
