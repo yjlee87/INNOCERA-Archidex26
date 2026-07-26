@@ -788,6 +788,18 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   width:5px;height:5px;border-radius:50%;background:rgb(var(--cct-rgb));
   box-shadow:0 0 11px rgb(var(--cct-rgb)/.9);transition:background .55s var(--ease)}
 
+/* brand mark silkscreened on the glass — surfaces only when the display is off,
+   sits in the clear band between the screen and the reflected basin */
+.mp-brand{position:absolute;left:50%;transform:translateX(-50%);z-index:3;pointer-events:none;
+  aspect-ratio:720/124;opacity:0;
+  background:url("/assets/images/innocera-logo.png") no-repeat center/contain;
+  filter:drop-shadow(0 0 9px rgba(236,230,218,.3));
+  transition:opacity .55s var(--ease)}
+.mp-mirror-tall .mp-brand{width:46%;top:66%}
+.mp-mirror-round .mp-brand{width:44%;top:43%}
+.mp-mirror-tall[data-app="off"] .mp-brand{opacity:.58}
+.mp-mirror-round[data-mode="mirror"] .mp-brand{opacity:.58}
+
 /* ---------- the 32" screen ---------- */
 .mp-screen{position:absolute;left:8%;right:8%;top:5.5%;aspect-ratio:9/16;z-index:2;
   border-radius:6px;overflow:hidden;background:#04080B;
@@ -914,6 +926,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   border-color:var(--gold)}
 .mp-tab small{display:block;font-size:.56rem;letter-spacing:.12em;opacity:.7;margin-top:3px;
   font-variant-numeric:tabular-nums}
+.mp-note{margin-top:12px;font-size:.74rem;color:var(--ink-faint);line-height:1.55}
 .mp-dimmer{display:flex;align-items:center;gap:12px;margin-top:14px;
   font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
 .mp-dimmer input[type=range]{flex:1;accent-color:var(--gold);min-height:24px;cursor:pointer}
