@@ -558,4 +558,21 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .sw-band figure{margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line-soft);
   box-shadow:0 30px 60px -44px rgba(0,0,0,.8)}
 .sw-band figure img{width:100%;height:auto;display:block}
-.sw-band .sw-note{margin-top:16px;color:var(--ink-faint);font-size:.82rem;letter-spacing:.02em}
+
+/* hero convenience chips */
+.sw-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;padding:0;list-style:none}
+.sw-chips li{font-family:var(--sans);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;
+  padding:7px 13px;background:rgba(255,255,255,.02)}
+
+/* product shot sitting above a dimension drawing */
+.fb-diagram .sw-shot{mix-blend-mode:normal;border-radius:4px;margin-bottom:20px}
+
+/* compact spec rows on accessory cards */
+.fb-acc:has(.sw-mini) p{flex:1}
+.sw-mini{margin:4px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--line-soft)}
+.sw-mini>div{display:grid;grid-template-columns:.72fr 1.28fr;gap:12px;padding:8px 0;
+  border-bottom:1px solid var(--line-soft)}
+.sw-mini dt{margin:0;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600}
+.sw-mini dd{margin:0;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
