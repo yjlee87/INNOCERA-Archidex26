@@ -1150,6 +1150,24 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   color:var(--ink);margin-bottom:6px}
 .ef-points p{font-size:.85rem;color:var(--ink-dim);line-height:1.6;margin:0}
 
+/* ===================================================================
+   RAINFOREST — tap & shower head
+   =================================================================== */
+.rf-panel{background:
+  radial-gradient(120% 90% at 6% 4%, rgba(126,178,140,.16), transparent 44%),
+  radial-gradient(115% 95% at 98% 100%, rgba(199,162,83,.12), transparent 46%),
+  linear-gradient(155deg,#0F2420,#0A1312)}
+.rf-hero-figure img{object-position:center 46%;
+  filter:brightness(.86) contrast(1.04) saturate(.9)}
+.rf-family{background:var(--bg-2);border-block:1px solid var(--line-soft);
+  padding-block:clamp(52px,8vw,100px)}
+.rf-family .fb-desc{max-width:62ch}
+.rf-family .ef-points{margin-top:clamp(30px,4vw,46px)}
+/* the mixer cut-outs are on pure white, so multiply (inherited from .fb-diagram
+   img) drops their background into the cream plate and costs the chrome ~4% */
+.rf .fb-product{align-items:start}
+.rf .fb-specs{align-self:start}
+
 /* product name and specs start level with the top of the plate, not centred on it */
 .ef .fb-product{align-items:start}
 .ef .fb-specs{align-self:start}
