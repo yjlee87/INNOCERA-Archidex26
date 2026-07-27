@@ -1095,14 +1095,6 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ef-fall.f3{animation-delay:0s,-.73s}
 @keyframes efFallGo{to{stroke-dashoffset:-39}}
 
-/* direction arrows, as on a flush diagram */
-.ef-arrow{fill:none;stroke:#15564E;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;
-  animation:efArrow var(--cycle,9s) ease-in-out infinite}
-.ef-arrowhead{fill:#15564E;animation:efArrow var(--cycle,9s) ease-in-out infinite}
-@keyframes efArrow{
-  0%,18%{opacity:0} 26%,56%{opacity:.95} 66%,100%{opacity:0}
-}
-
 /* the verdict, once the water has gone */
 .ef-verdict{animation:efVerdict var(--cycle,9s) ease-in-out infinite}
 @keyframes efVerdict{
@@ -1134,7 +1126,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   /* hold the finished state: one bowl clean, the other not */
   .ef-soil-open{animation:none;opacity:0}
   .ef-soil-trapped{animation:none;opacity:.8}
-  .ef-sweep,.ef-fall,.ef-arrow,.ef-arrowhead{animation:none;opacity:0}
+  .ef-sweep,.ef-fall{animation:none;opacity:0}
   .ef-verdict{animation:none;opacity:1}
   .ef-stage-label .t1,.ef-stage-label .t2{animation:none;opacity:0}
   .ef-stage-label .t3{animation:none;opacity:1}

@@ -83,144 +83,121 @@
 
       <div class="ef-plates2">
         <figure class="ef-fig ef-bowlfig">
-          <svg viewBox="0 0 170 180" role="img" aria-label="Top view of a conventional closet with the same ten soil marks. The flush falls straight down the walls, so the six marks under the rim overhang are untouched and remain afterwards.">
+          <svg viewBox="0 0 180 206" role="img" aria-label="Looking down into a conventional bowl with the same ten soil streaks. The flush falls straight down the walls, so the six streaks under the rim overhang remain after it.">
             <defs>
-              <linearGradient id="efCerA" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#F8F9F9"/><stop offset="1" stop-color="#C6CFCF"/>
+              <linearGradient id="efCerA" x1="0" y1="0" x2="0.15" y2="1">
+                <stop offset="0" stop-color="#FBFCFC"/><stop offset="1" stop-color="#C2CBCB"/>
               </linearGradient>
-              <radialGradient id="efWellA" cx="50%" cy="62%" r="76%">
-                <stop offset="0" stop-color="#8F9C9C"/><stop offset="0.45" stop-color="#C6CFCF"/>
-                <stop offset="1" stop-color="#F0F3F3"/>
+              <radialGradient id="efWellA" cx="50%" cy="66%" r="74%">
+                <stop offset="0" stop-color="#8B9898"/><stop offset="0.5" stop-color="#C4CDCD"/>
+                <stop offset="1" stop-color="#EDF1F1"/>
               </radialGradient>
-              <radialGradient id="efSumpA" cx="50%" cy="34%" r="78%">
-                <stop offset="0" stop-color="#2F7E90"/><stop offset="1" stop-color="#123B45"/>
-              </radialGradient>
+              <linearGradient id="efSealA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3E9DB4"/><stop offset="1" stop-color="#10505F"/>
+              </linearGradient>
               <pattern id="efHatchA" width="5" height="5" patternTransform="rotate(45)"
                        patternUnits="userSpaceOnUse">
                 <line class="ef-hatchband" x1="0" y1="0" x2="0" y2="5"/>
               </pattern>
-              <path id="efPanA" d="M63 42 C51 47 45 59 45 76 C45 99 51 125 63 141 C71 152 80 157 85 157 C90 157 99 152 107 141 C119 125 125 99 125 76 C125 59 119 47 107 42 Z"/>
+              <path id="efOpenA" d="M90 44 C61 44 38 64 38 92 C38 120 57 152 82 164 C87 166 93 166 98 164 C123 152 142 120 142 92 C142 64 119 44 90 44 Z"/>
             </defs>
-            <!-- cistern, so the plan reads as a closet -->
-            <rect x="50" y="6" width="70" height="31" rx="8" fill="url(#efCerA)"/>
-            <rect x="74" y="14" width="22" height="7" rx="3.5" fill="#A9B4B4"/>
-            <use href="#efPanA" fill="url(#efCerA)"/>
-            <use href="#efPanA" transform="translate(85 99) scale(.87) translate(-85 -99)" fill="#5D6A6A"/>
-            <use href="#efPanA" transform="translate(85 99) scale(.87) translate(-85 -99)" fill="url(#efHatchA)" opacity=".55"/>
-            <use href="#efPanA" transform="translate(85 99) scale(.76) translate(-85 -99)" fill="url(#efWellA)"/>
-            <!-- trap -->
-            <ellipse cx="85" cy="112" rx="17" ry="13" fill="url(#efSumpA)"/>
-            <ellipse cx="85" cy="112" rx="17" ry="13" fill="none"
-                     stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+            <path d="M90 12 C50 12 16 40 16 84 C16 124 44 168 78 185 C86 189 94 189 102 185 C136 168 164 124 164 84 C164 40 130 12 90 12 Z" fill="url(#efCerA)"/>
+            <use href="#efOpenA" fill="#5A6767"/>
+            <use href="#efOpenA" fill="url(#efHatchA)" opacity=".5"/>
+            <use href="#efOpenA" transform="translate(90 104) scale(.74) translate(-90 -104)" fill="url(#efWellA)"/>
+            <!-- water seal: a U, not an ellipse -->
+            <path d="M70 110 L110 110 Q112 110 112 112.5 L112 127 C112 147 68 147 68 127 L68 112.5 Q68 110 70 110 Z" fill="url(#efSealA)"/>
+            <path d="M70 110 L110 110 Q112 110 112 112.5 L112 127 C112 147 68 147 68 127 L68 112.5 Q68 110 70 110 Z" fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
             <g class="ef-soil ef-soil-trapped">
-              <ellipse cx="53" cy="70" rx="5" ry="2.5" transform="rotate(-24 53 70)"/>
-              <ellipse cx="117" cy="70" rx="5" ry="2.5" transform="rotate(20 117 70)"/>
-              <ellipse cx="52" cy="90" rx="5" ry="2.5" transform="rotate(-14 52 90)"/>
-              <ellipse cx="118" cy="90" rx="5" ry="2.5" transform="rotate(26 118 90)"/>
-              <ellipse cx="64" cy="125" rx="5" ry="2.5" transform="rotate(16 64 125)"/>
-              <ellipse cx="106" cy="125" rx="5" ry="2.5" transform="rotate(-20 106 125)"/>
+              <ellipse cx="53" cy="68" rx="6.2" ry="2.1" transform="rotate(-45.8 53 68)"/>
+              <ellipse cx="127" cy="68" rx="6.2" ry="2.1" transform="rotate(45.8 127 68)"/>
+              <ellipse cx="45" cy="97" rx="6.2" ry="2.1" transform="rotate(-81.2 45 97)"/>
+              <ellipse cx="135" cy="97" rx="6.2" ry="2.1" transform="rotate(81.2 135 97)"/>
+              <ellipse cx="66" cy="146" rx="6.2" ry="2.1" transform="rotate(209.7 66 146)"/>
+              <ellipse cx="114" cy="146" rx="6.2" ry="2.1" transform="rotate(150.3 114 146)"/>
             </g>
             <g class="ef-soil ef-soil-open">
-              <ellipse cx="85" cy="68" rx="5" ry="2.5" transform="rotate(-24 85 68)"/>
-              <ellipse cx="70" cy="95" rx="5" ry="2.5" transform="rotate(20 70 95)"/>
-              <ellipse cx="100" cy="93" rx="5" ry="2.5" transform="rotate(-14 100 93)"/>
-              <ellipse cx="85" cy="130" rx="5" ry="2.5" transform="rotate(26 85 130)"/>
-            </g>
-            <g class="ef-fallgroup">
-              <path class="ef-fall"    d="M85 54V88"/>
-              <path class="ef-fall f2" d="M62 68L76 94"/>
-              <path class="ef-fall f3" d="M108 66L94 92"/>
-              <path class="ef-fall f2" d="M53 98L70 106"/>
-              <path class="ef-fall"    d="M117 96L100 105"/>
-              <path class="ef-fall f3" d="M64 130L78 119"/>
-              <path class="ef-fall f2" d="M106 128L92 119"/>
-              <path class="ef-fall"    d="M85 143V124"/>
+              <ellipse cx="80" cy="70" rx="6.2" ry="2.1" transform="rotate(-16.4 80 70)"/>
+              <ellipse cx="104" cy="72" rx="6.2" ry="2.1" transform="rotate(23.6 104 72)"/>
+              <ellipse cx="60" cy="108" rx="6.2" ry="2.1" transform="rotate(262.4 60 108)"/>
+              <ellipse cx="120" cy="106" rx="6.2" ry="2.1" transform="rotate(93.8 120 106)"/>
             </g>
             <g>
-              <path class="ef-arrowhead" d="M85 92l-3.4-6h6.8z"/>
-              <path class="ef-arrowhead" d="M78 98l-6.6-1.6 3.4-5.9z"/>
-              <path class="ef-arrowhead" d="M92 96l6.6-1.4-3.6-5.8z"/>
-              <path class="ef-arrowhead" d="M85 120l3.4 6h-6.8z"/>
+              <path class="ef-fall"    d="M90 64V106"/>
+              <path class="ef-fall f2" d="M60 80L78 110"/>
+              <path class="ef-fall f3" d="M120 78L102 108"/>
+              <path class="ef-fall f2" d="M52 106L68 120"/>
+              <path class="ef-fall"    d="M128 104L112 119"/>
+              <path class="ef-fall f3" d="M62 140L76 134"/>
+              <path class="ef-fall f2" d="M118 138L104 133"/>
             </g>
-            <g class="ef-verdict ef-verdict-bad" transform="translate(85 170)">
+            <g class="ef-verdict ef-verdict-bad" transform="translate(90 197)">
               <circle cx="-33" cy="-3" r="5.4"/><path d="M-33-5.8v3.4M-33 .4h.01"/>
               <text x="-24" y="0">Residue left</text>
             </g>
           </svg>
           <div class="ef-stage-label" aria-hidden="true">
-            <span class="t1">Before &mdash; ten marks, both bowls</span>
+            <span class="t1">Before &mdash; ten streaks, both bowls</span>
             <span class="t2">Flushing</span>
-            <span class="t3">After &mdash; the rim shadow keeps its grime</span>
+            <span class="t3">After &mdash; the rim keeps its grime</span>
           </div>
           <figcaption>
             <b>Conventional box rim</b>
-            <span>Water simply falls from the rim and runs down the walls. The overhang it falls from is never in the path of its own flush, so whatever collects under there stays under there.</span>
+            <span>Water falls from the rim and runs straight down the walls. The overhang it falls from is never in the path of its own flush, so whatever collects under there stays there.</span>
           </figcaption>
         </figure>
 
         <figure class="ef-fig ef-bowlfig is-key">
-          <svg viewBox="0 0 170 180" role="img" aria-label="Top view of the Sericite rimless closet. The same ten soil marks as the conventional bowl; the flush spirals round the full perimeter and every mark is gone afterwards.">
+          <svg viewBox="0 0 180 206" role="img" aria-label="Looking down into the Sericite rimless bowl. The same ten soil streaks as the conventional bowl; the flush spirals round the full rim and all ten are gone after.">
             <defs>
-              <linearGradient id="efCerB" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#F8F9F9"/><stop offset="1" stop-color="#C6CFCF"/>
+              <linearGradient id="efCerB" x1="0" y1="0" x2="0.15" y2="1">
+                <stop offset="0" stop-color="#FBFCFC"/><stop offset="1" stop-color="#C2CBCB"/>
               </linearGradient>
-              <radialGradient id="efWellB" cx="50%" cy="62%" r="76%">
-                <stop offset="0" stop-color="#8F9C9C"/><stop offset="0.45" stop-color="#C6CFCF"/>
-                <stop offset="1" stop-color="#F0F3F3"/>
+              <radialGradient id="efWellB" cx="50%" cy="66%" r="74%">
+                <stop offset="0" stop-color="#8B9898"/><stop offset="0.5" stop-color="#C4CDCD"/>
+                <stop offset="1" stop-color="#EDF1F1"/>
               </radialGradient>
-              <radialGradient id="efSumpB" cx="50%" cy="34%" r="78%">
-                <stop offset="0" stop-color="#2F7E90"/><stop offset="1" stop-color="#123B45"/>
-              </radialGradient>
+              <linearGradient id="efSealB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3E9DB4"/><stop offset="1" stop-color="#10505F"/>
+              </linearGradient>
               <pattern id="efHatchB" width="5" height="5" patternTransform="rotate(45)"
                        patternUnits="userSpaceOnUse">
                 <line class="ef-hatchband" x1="0" y1="0" x2="0" y2="5"/>
               </pattern>
-              <path id="efPanB" d="M63 42 C51 47 45 59 45 76 C45 99 51 125 63 141 C71 152 80 157 85 157 C90 157 99 152 107 141 C119 125 125 99 125 76 C125 59 119 47 107 42 Z"/>
+              <path id="efOpenB" d="M90 44 C61 44 38 64 38 92 C38 120 57 152 82 164 C87 166 93 166 98 164 C123 152 142 120 142 92 C142 64 119 44 90 44 Z"/>
             </defs>
-            <!-- cistern, so the plan reads as a closet -->
-            <rect x="50" y="6" width="70" height="31" rx="8" fill="url(#efCerB)"/>
-            <rect x="74" y="14" width="22" height="7" rx="3.5" fill="#A9B4B4"/>
-            <use href="#efPanB" fill="url(#efCerB)"/>
-            <use href="#efPanB" transform="translate(85 99) scale(.90) translate(-85 -99)" fill="url(#efWellB)"/>
-            <!-- trap -->
-            <ellipse cx="85" cy="112" rx="17" ry="13" fill="url(#efSumpB)"/>
-            <ellipse cx="85" cy="112" rx="17" ry="13" fill="none"
-                     stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+            <path d="M90 12 C50 12 16 40 16 84 C16 124 44 168 78 185 C86 189 94 189 102 185 C136 168 164 124 164 84 C164 40 130 12 90 12 Z" fill="url(#efCerB)"/>
+            <use href="#efOpenB" fill="url(#efWellB)"/>
+            <!-- water seal: a U, not an ellipse -->
+            <path d="M70 110 L110 110 Q112 110 112 112.5 L112 127 C112 147 68 147 68 127 L68 112.5 Q68 110 70 110 Z" fill="url(#efSealB)"/>
+            <path d="M70 110 L110 110 Q112 110 112 112.5 L112 127 C112 147 68 147 68 127 L68 112.5 Q68 110 70 110 Z" fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1"/>
             <g class="ef-soil ef-soil-open">
-              <ellipse cx="53" cy="70" rx="5" ry="2.5" transform="rotate(-24 53 70)"/>
-              <ellipse cx="117" cy="70" rx="5" ry="2.5" transform="rotate(20 117 70)"/>
-              <ellipse cx="52" cy="90" rx="5" ry="2.5" transform="rotate(-14 52 90)"/>
-              <ellipse cx="118" cy="90" rx="5" ry="2.5" transform="rotate(26 118 90)"/>
-              <ellipse cx="64" cy="125" rx="5" ry="2.5" transform="rotate(16 64 125)"/>
-              <ellipse cx="106" cy="125" rx="5" ry="2.5" transform="rotate(-20 106 125)"/>
-              <ellipse cx="85" cy="68" rx="5" ry="2.5" transform="rotate(0 85 68)"/>
-              <ellipse cx="70" cy="95" rx="5" ry="2.5" transform="rotate(-12 70 95)"/>
-              <ellipse cx="100" cy="93" rx="5" ry="2.5" transform="rotate(14 100 93)"/>
-              <ellipse cx="85" cy="130" rx="5" ry="2.5" transform="rotate(8 85 130)"/>
+              <ellipse cx="53" cy="68" rx="6.2" ry="2.1" transform="rotate(-45.8 53 68)"/>
+              <ellipse cx="127" cy="68" rx="6.2" ry="2.1" transform="rotate(45.8 127 68)"/>
+              <ellipse cx="45" cy="97" rx="6.2" ry="2.1" transform="rotate(-81.2 45 97)"/>
+              <ellipse cx="135" cy="97" rx="6.2" ry="2.1" transform="rotate(81.2 135 97)"/>
+              <ellipse cx="66" cy="146" rx="6.2" ry="2.1" transform="rotate(209.7 66 146)"/>
+              <ellipse cx="114" cy="146" rx="6.2" ry="2.1" transform="rotate(150.3 114 146)"/>
+              <ellipse cx="80" cy="70" rx="6.2" ry="2.1" transform="rotate(-16.4 80 70)"/>
+              <ellipse cx="104" cy="72" rx="6.2" ry="2.1" transform="rotate(23.6 104 72)"/>
+              <ellipse cx="60" cy="108" rx="6.2" ry="2.1" transform="rotate(262.4 60 108)"/>
+              <ellipse cx="120" cy="106" rx="6.2" ry="2.1" transform="rotate(93.8 120 106)"/>
             </g>
             <g>
-              <use href="#efPanB" class="ef-sweep"    transform="translate(85 99) scale(.82) translate(-85 -99)"
-                   stroke-width="6" stroke-dasharray="66 210"/>
-              <use href="#efPanB" class="ef-sweep s2" transform="translate(85 99) scale(.66) translate(-85 -99)"
-                   stroke-width="5" stroke-dasharray="52 170"/>
-              <use href="#efPanB" class="ef-sweep s3" transform="translate(85 99) scale(.48) translate(-85 -99)"
-                   stroke-width="4" stroke-dasharray="38 128"/>
+              <use href="#efOpenB" class="ef-sweep"    transform="translate(90 104) scale(.93) translate(-90 -104)"
+                   stroke-width="7" stroke-dasharray="72 220"/>
+              <use href="#efOpenB" class="ef-sweep s2" transform="translate(90 104) scale(.74) translate(-90 -104)"
+                   stroke-width="5.6" stroke-dasharray="56 176"/>
+              <use href="#efOpenB" class="ef-sweep s3" transform="translate(90 104) scale(.55) translate(-90 -104)"
+                   stroke-width="4.4" stroke-dasharray="40 130"/>
             </g>
-            <g>
-              <path class="ef-arrow" d="M120 66C127 80 126 96 119 110"/>
-              <path class="ef-arrowhead" d="M119 110l6-2.4-.6 7.2z"/>
-              <path class="ef-arrow" d="M104 138C94 145 78 145 67 137"/>
-              <path class="ef-arrowhead" d="M67 137l1.6 6.2-6.6-2.8z"/>
-              <path class="ef-arrow" d="M50 110C43 96 43 79 50 66"/>
-              <path class="ef-arrowhead" d="M50 66l-6 2.2.4-7.2z"/>
-            </g>
-            <g class="ef-verdict ef-verdict-good" transform="translate(85 170)">
+            <g class="ef-verdict ef-verdict-good" transform="translate(90 197)">
               <circle cx="-26" cy="-3" r="5.4"/><path d="M-28.6-3l2 2.2 3.8-4.4"/>
               <text x="-17" y="0">Clean</text>
             </g>
           </svg>
           <div class="ef-stage-label" aria-hidden="true">
-            <span class="t1">Before &mdash; ten marks, both bowls</span>
+            <span class="t1">Before &mdash; ten streaks, both bowls</span>
             <span class="t2">Flushing</span>
             <span class="t3">After &mdash; nothing left</span>
           </div>
