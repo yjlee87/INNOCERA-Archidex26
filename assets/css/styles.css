@@ -1055,16 +1055,22 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ef-fig.is-key figcaption b{color:var(--gold)}
 .ef-fig figcaption span{display:block;font-size:.84rem;color:var(--ink-dim);line-height:1.55}
 
-/* line-art tokens */
-.ef-ceramic{fill:none;stroke:rgba(236,230,218,.62);stroke-width:1.5}
-.ef-ceramic-soft{fill:none;stroke:rgba(236,230,218,.3);stroke-width:1.2}
-.ef-hatchband{stroke:rgba(236,230,218,.42);stroke-width:1.2}
-/* the full loop stays visible so "one rotation" reads even when paused */
-.ef-water-guide{fill:none;stroke:rgba(127,227,220,.22);stroke-width:2.4;stroke-linecap:round}
-.ef-water{fill:none;stroke:#7FE3DC;stroke-width:2.4;stroke-linecap:round;
-  stroke-dasharray:74 260;filter:drop-shadow(0 0 5px rgba(127,227,220,.55));
-  animation:efFlow 2.8s linear infinite}
-@keyframes efFlow{to{stroke-dashoffset:-334}}
+/* line-art tokens — the ceramic is drawn as a thick stroked centreline, so the
+   stroke itself reads as the wall in section */
+.ef-wall{fill:none;stroke:rgba(236,230,218,.55);stroke-width:6;
+  stroke-linecap:round;stroke-linejoin:round}
+.ef-waterline{fill:rgba(127,227,220,.18);stroke:rgba(127,227,220,.45);stroke-width:1.2}
+.ef-hidden-water{stroke:rgba(127,227,220,.5);stroke-width:2.6;stroke-linecap:round;fill:none}
+.ef-hatchband{stroke:rgba(236,230,218,.34);stroke-width:1.1}
+/* seat, pedestal and floor — context only, so the cut reads as a closet */
+.ef-outline{fill:none;stroke:rgba(236,230,218,.22);stroke-width:3;stroke-linecap:round}
+/* the full path stays visible so the route reads even when paused */
+.ef-water-guide{fill:none;stroke:rgba(127,227,220,.2);stroke-width:2.6;stroke-linecap:round}
+.ef-water{fill:none;stroke:#7FE3DC;stroke-width:2.6;stroke-linecap:round;
+  stroke-dasharray:26 96;filter:drop-shadow(0 0 5px rgba(127,227,220,.55));
+  animation:efFlow 2.2s linear infinite}
+.ef-water-b{animation-delay:-1.1s}
+@keyframes efFlow{to{stroke-dashoffset:-122}}
 .ef-inletmark{fill:#7FE3DC}
 .ef-blocked{stroke:rgba(199,162,83,.85);stroke-width:1.8;stroke-linecap:round;fill:none}
 
@@ -1076,6 +1082,12 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ef-points b{display:block;font-family:var(--sans);font-size:.88rem;font-weight:600;
   color:var(--ink);margin-bottom:6px}
 .ef-points p{font-size:.85rem;color:var(--ink-dim);line-height:1.6;margin:0}
+
+/* product name and specs start level with the top of the plate, not centred on it */
+.ef .fb-product{align-items:start}
+.ef .fb-specs{align-self:start}
+.ef-series{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:11px}
 
 /* a photo and a drawing stacked on one plate */
 .fb-diagram .ef-pair{display:grid;gap:16px}
