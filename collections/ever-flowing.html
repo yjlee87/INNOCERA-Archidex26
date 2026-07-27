@@ -83,15 +83,14 @@
 
       <div class="ef-plates2">
         <figure class="ef-fig ef-bowlfig">
-          <svg viewBox="0 0 170 150" role="img"
-               aria-label="A conventional bowl seen from above. The rim overhangs the glaze; soiling tucked under it is never reached by the flush and is still there afterwards.">
+          <svg viewBox="0 0 170 180" role="img" aria-label="Top view of a conventional closet with the same ten soil marks. The flush falls straight down the walls, so the six marks under the rim overhang are untouched and remain afterwards.">
             <defs>
-              <radialGradient id="efCerA" cx="46%" cy="24%" r="82%">
-                <stop offset="0" stop-color="#F7F8F8"/><stop offset="1" stop-color="#C4CDCD"/>
-              </radialGradient>
-              <radialGradient id="efWellA" cx="50%" cy="68%" r="84%">
-                <stop offset="0" stop-color="#93A0A0"/><stop offset="0.45" stop-color="#C8D0D0"/>
-                <stop offset="1" stop-color="#F1F4F4"/>
+              <linearGradient id="efCerA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F8F9F9"/><stop offset="1" stop-color="#C6CFCF"/>
+              </linearGradient>
+              <radialGradient id="efWellA" cx="50%" cy="62%" r="76%">
+                <stop offset="0" stop-color="#8F9C9C"/><stop offset="0.45" stop-color="#C6CFCF"/>
+                <stop offset="1" stop-color="#F0F3F3"/>
               </radialGradient>
               <radialGradient id="efSumpA" cx="50%" cy="34%" r="78%">
                 <stop offset="0" stop-color="#2F7E90"/><stop offset="1" stop-color="#123B45"/>
@@ -100,75 +99,74 @@
                        patternUnits="userSpaceOnUse">
                 <line class="ef-hatchband" x1="0" y1="0" x2="0" y2="5"/>
               </pattern>
+              <path id="efPanA" d="M63 42 C51 47 45 59 45 76 C45 99 51 125 63 141 C71 152 80 157 85 157 C90 157 99 152 107 141 C119 125 125 99 125 76 C125 59 119 47 107 42 Z"/>
             </defs>
-            <ellipse cx="85" cy="70" rx="62" ry="52" fill="url(#efCerA)"/>
-            <ellipse cx="85" cy="71" rx="55" ry="45" fill="#5D6A6A"/>
-            <ellipse cx="85" cy="71" rx="55" ry="45" fill="url(#efHatchA)" opacity=".55"/>
-            <ellipse cx="85" cy="73" rx="47" ry="38" fill="url(#efWellA)"/>
-            <!-- sump -->
-            <ellipse cx="85" cy="96" rx="20" ry="13" fill="url(#efSumpA)"/>
-            <ellipse cx="85" cy="96" rx="20" ry="13" fill="none"
-                     stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+            <!-- cistern, so the plan reads as a closet -->
+            <rect x="50" y="6" width="70" height="31" rx="8" fill="url(#efCerA)"/>
+            <rect x="74" y="14" width="22" height="7" rx="3.5" fill="#A9B4B4"/>
+            <use href="#efPanA" fill="url(#efCerA)"/>
+            <use href="#efPanA" transform="translate(85 99) scale(.87) translate(-85 -99)" fill="#5D6A6A"/>
+            <use href="#efPanA" transform="translate(85 99) scale(.87) translate(-85 -99)" fill="url(#efHatchA)" opacity=".55"/>
+            <use href="#efPanA" transform="translate(85 99) scale(.76) translate(-85 -99)" fill="url(#efWellA)"/>
+            <!-- trap -->
+            <ellipse cx="85" cy="112" rx="17" ry="13" fill="url(#efSumpA)"/>
+            <ellipse cx="85" cy="112" rx="17" ry="13" fill="none"
+                     stroke="rgba(255,255,255,.28)" stroke-width="1"/>
             <g class="ef-soil ef-soil-trapped">
-              <ellipse cx="52" cy="60" rx="5" ry="2.6" transform="rotate(-28 52 60)"/>
-              <ellipse cx="66" cy="38" rx="4.4" ry="2.2" transform="rotate(-8 66 38)"/>
-              <ellipse cx="108" cy="40" rx="5.2" ry="2.4" transform="rotate(14 108 40)"/>
-              <ellipse cx="120" cy="62" rx="4.6" ry="2.6" transform="rotate(38 120 62)"/>
-              <ellipse cx="103" cy="106" rx="4.8" ry="2.3" transform="rotate(-16 103 106)"/>
-              <ellipse cx="62" cy="103" rx="4.2" ry="2.2" transform="rotate(18 62 103)"/>
+              <ellipse cx="53" cy="70" rx="5" ry="2.5" transform="rotate(-24 53 70)"/>
+              <ellipse cx="117" cy="70" rx="5" ry="2.5" transform="rotate(20 117 70)"/>
+              <ellipse cx="52" cy="90" rx="5" ry="2.5" transform="rotate(-14 52 90)"/>
+              <ellipse cx="118" cy="90" rx="5" ry="2.5" transform="rotate(26 118 90)"/>
+              <ellipse cx="64" cy="125" rx="5" ry="2.5" transform="rotate(16 64 125)"/>
+              <ellipse cx="106" cy="125" rx="5" ry="2.5" transform="rotate(-20 106 125)"/>
             </g>
-            <!-- soiling on open glaze -->
             <g class="ef-soil ef-soil-open">
-              <ellipse cx="66" cy="60" rx="5.4" ry="2.8" transform="rotate(-30 66 60)"/>
-              <ellipse cx="104" cy="58" rx="4.6" ry="2.4" transform="rotate(24 104 58)"/>
-              <ellipse cx="86" cy="52" rx="6" ry="2.6"/>
-              <ellipse cx="72" cy="82" rx="4.4" ry="2.2" transform="rotate(-14 72 82)"/>
-              <ellipse cx="100" cy="80" rx="5" ry="2.4" transform="rotate(16 100 80)"/>
+              <ellipse cx="85" cy="68" rx="5" ry="2.5" transform="rotate(-24 85 68)"/>
+              <ellipse cx="70" cy="95" rx="5" ry="2.5" transform="rotate(20 70 95)"/>
+              <ellipse cx="100" cy="93" rx="5" ry="2.5" transform="rotate(-14 100 93)"/>
+              <ellipse cx="85" cy="130" rx="5" ry="2.5" transform="rotate(26 85 130)"/>
             </g>
-            <!-- the flush, sweeping round -->
-            <g class="ef-sweepgroup">
-              <ellipse class="ef-sweep"    cx="85" cy="74" rx="48" ry="38"
-                       stroke-width="5" stroke-dasharray="40 120"/>
-              <ellipse class="ef-sweep s2" cx="85" cy="80" rx="38" ry="29"
-                       stroke-width="4.4" stroke-dasharray="34 106"/>
-              <ellipse class="ef-sweep s3" cx="85" cy="88" rx="27" ry="19"
-                       stroke-width="3.6" stroke-dasharray="26 84"/>
+            <g class="ef-fallgroup">
+              <path class="ef-fall"    d="M85 54V88"/>
+              <path class="ef-fall f2" d="M62 68L76 94"/>
+              <path class="ef-fall f3" d="M108 66L94 92"/>
+              <path class="ef-fall f2" d="M53 98L70 106"/>
+              <path class="ef-fall"    d="M117 96L100 105"/>
+              <path class="ef-fall f3" d="M64 130L78 119"/>
+              <path class="ef-fall f2" d="M106 128L92 119"/>
+              <path class="ef-fall"    d="M85 143V124"/>
             </g>
-            <!-- direction of travel -->
             <g>
-              <path class="ef-arrow" d="M124 46C133 58 132 72 124 84"/>
-              <path class="ef-arrowhead" d="M124 84l6-2-1 7z"/>
-              <path class="ef-arrow" d="M104 104C90 110 74 108 62 100"/>
-              <path class="ef-arrowhead" d="M62 100l1 6.2-6.4-2.2z"/>
-              <path class="ef-arrow" d="M46 84C38 72 39 58 47 47"/>
-              <path class="ef-arrowhead" d="M47 47l-6 1.6 1-6.8z"/>
+              <path class="ef-arrowhead" d="M85 92l-3.4-6h6.8z"/>
+              <path class="ef-arrowhead" d="M78 98l-6.6-1.6 3.4-5.9z"/>
+              <path class="ef-arrowhead" d="M92 96l6.6-1.4-3.6-5.8z"/>
+              <path class="ef-arrowhead" d="M85 120l3.4 6h-6.8z"/>
             </g>
-            <g class="ef-verdict ef-verdict-bad" transform="translate(85 142)">
+            <g class="ef-verdict ef-verdict-bad" transform="translate(85 170)">
               <circle cx="-33" cy="-3" r="5.4"/><path d="M-33-5.8v3.4M-33 .4h.01"/>
               <text x="-24" y="0">Residue left</text>
             </g>
           </svg>
           <div class="ef-stage-label" aria-hidden="true">
-            <span class="t1">Before &mdash; soiled glaze</span>
+            <span class="t1">Before &mdash; ten marks, both bowls</span>
             <span class="t2">Flushing</span>
-            <span class="t3">After &mdash; grime under the rim</span>
+            <span class="t3">After &mdash; the rim shadow keeps its grime</span>
           </div>
           <figcaption>
             <b>Conventional box rim</b>
-            <span>The rim overhangs the bowl. Water runs inside it, so the surface underneath is never flushed and never cleaned &mdash; it just accumulates.</span>
+            <span>Water simply falls from the rim and runs down the walls. The overhang it falls from is never in the path of its own flush, so whatever collects under there stays under there.</span>
           </figcaption>
         </figure>
 
         <figure class="ef-fig ef-bowlfig is-key">
-          <svg viewBox="0 0 170 150" role="img"
-               aria-label="The Sericite rimless bowl seen from above. Soiling on the glaze is swept away by the flush and the bowl is left clean.">
+          <svg viewBox="0 0 170 180" role="img" aria-label="Top view of the Sericite rimless closet. The same ten soil marks as the conventional bowl; the flush spirals round the full perimeter and every mark is gone afterwards.">
             <defs>
-              <radialGradient id="efCerB" cx="46%" cy="24%" r="82%">
-                <stop offset="0" stop-color="#F7F8F8"/><stop offset="1" stop-color="#C4CDCD"/>
-              </radialGradient>
-              <radialGradient id="efWellB" cx="50%" cy="68%" r="84%">
-                <stop offset="0" stop-color="#93A0A0"/><stop offset="0.45" stop-color="#C8D0D0"/>
-                <stop offset="1" stop-color="#F1F4F4"/>
+              <linearGradient id="efCerB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F8F9F9"/><stop offset="1" stop-color="#C6CFCF"/>
+              </linearGradient>
+              <radialGradient id="efWellB" cx="50%" cy="62%" r="76%">
+                <stop offset="0" stop-color="#8F9C9C"/><stop offset="0.45" stop-color="#C6CFCF"/>
+                <stop offset="1" stop-color="#F0F3F3"/>
               </radialGradient>
               <radialGradient id="efSumpB" cx="50%" cy="34%" r="78%">
                 <stop offset="0" stop-color="#2F7E90"/><stop offset="1" stop-color="#123B45"/>
@@ -177,52 +175,58 @@
                        patternUnits="userSpaceOnUse">
                 <line class="ef-hatchband" x1="0" y1="0" x2="0" y2="5"/>
               </pattern>
+              <path id="efPanB" d="M63 42 C51 47 45 59 45 76 C45 99 51 125 63 141 C71 152 80 157 85 157 C90 157 99 152 107 141 C119 125 125 99 125 76 C125 59 119 47 107 42 Z"/>
             </defs>
-            <ellipse cx="85" cy="70" rx="62" ry="52" fill="url(#efCerB)"/>
-            <ellipse cx="85" cy="71" rx="55" ry="45" fill="url(#efWellB)"/>
-            <!-- sump -->
-            <ellipse cx="85" cy="96" rx="20" ry="13" fill="url(#efSumpB)"/>
-            <ellipse cx="85" cy="96" rx="20" ry="13" fill="none"
-                     stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-            <!-- soiling on open glaze -->
+            <!-- cistern, so the plan reads as a closet -->
+            <rect x="50" y="6" width="70" height="31" rx="8" fill="url(#efCerB)"/>
+            <rect x="74" y="14" width="22" height="7" rx="3.5" fill="#A9B4B4"/>
+            <use href="#efPanB" fill="url(#efCerB)"/>
+            <use href="#efPanB" transform="translate(85 99) scale(.90) translate(-85 -99)" fill="url(#efWellB)"/>
+            <!-- trap -->
+            <ellipse cx="85" cy="112" rx="17" ry="13" fill="url(#efSumpB)"/>
+            <ellipse cx="85" cy="112" rx="17" ry="13" fill="none"
+                     stroke="rgba(255,255,255,.28)" stroke-width="1"/>
             <g class="ef-soil ef-soil-open">
-              <ellipse cx="66" cy="60" rx="5.4" ry="2.8" transform="rotate(-30 66 60)"/>
-              <ellipse cx="104" cy="58" rx="4.6" ry="2.4" transform="rotate(24 104 58)"/>
-              <ellipse cx="86" cy="52" rx="6" ry="2.6"/>
-              <ellipse cx="72" cy="82" rx="4.4" ry="2.2" transform="rotate(-14 72 82)"/>
-              <ellipse cx="100" cy="80" rx="5" ry="2.4" transform="rotate(16 100 80)"/>
+              <ellipse cx="53" cy="70" rx="5" ry="2.5" transform="rotate(-24 53 70)"/>
+              <ellipse cx="117" cy="70" rx="5" ry="2.5" transform="rotate(20 117 70)"/>
+              <ellipse cx="52" cy="90" rx="5" ry="2.5" transform="rotate(-14 52 90)"/>
+              <ellipse cx="118" cy="90" rx="5" ry="2.5" transform="rotate(26 118 90)"/>
+              <ellipse cx="64" cy="125" rx="5" ry="2.5" transform="rotate(16 64 125)"/>
+              <ellipse cx="106" cy="125" rx="5" ry="2.5" transform="rotate(-20 106 125)"/>
+              <ellipse cx="85" cy="68" rx="5" ry="2.5" transform="rotate(0 85 68)"/>
+              <ellipse cx="70" cy="95" rx="5" ry="2.5" transform="rotate(-12 70 95)"/>
+              <ellipse cx="100" cy="93" rx="5" ry="2.5" transform="rotate(14 100 93)"/>
+              <ellipse cx="85" cy="130" rx="5" ry="2.5" transform="rotate(8 85 130)"/>
             </g>
-            <!-- the flush, sweeping round -->
-            <g class="ef-sweepgroup">
-              <ellipse class="ef-sweep"    cx="85" cy="74" rx="48" ry="38"
-                       stroke-width="5" stroke-dasharray="40 120"/>
-              <ellipse class="ef-sweep s2" cx="85" cy="80" rx="38" ry="29"
-                       stroke-width="4.4" stroke-dasharray="34 106"/>
-              <ellipse class="ef-sweep s3" cx="85" cy="88" rx="27" ry="19"
-                       stroke-width="3.6" stroke-dasharray="26 84"/>
-            </g>
-            <!-- direction of travel -->
             <g>
-              <path class="ef-arrow" d="M124 46C133 58 132 72 124 84"/>
-              <path class="ef-arrowhead" d="M124 84l6-2-1 7z"/>
-              <path class="ef-arrow" d="M104 104C90 110 74 108 62 100"/>
-              <path class="ef-arrowhead" d="M62 100l1 6.2-6.4-2.2z"/>
-              <path class="ef-arrow" d="M46 84C38 72 39 58 47 47"/>
-              <path class="ef-arrowhead" d="M47 47l-6 1.6 1-6.8z"/>
+              <use href="#efPanB" class="ef-sweep"    transform="translate(85 99) scale(.82) translate(-85 -99)"
+                   stroke-width="6" stroke-dasharray="66 210"/>
+              <use href="#efPanB" class="ef-sweep s2" transform="translate(85 99) scale(.66) translate(-85 -99)"
+                   stroke-width="5" stroke-dasharray="52 170"/>
+              <use href="#efPanB" class="ef-sweep s3" transform="translate(85 99) scale(.48) translate(-85 -99)"
+                   stroke-width="4" stroke-dasharray="38 128"/>
             </g>
-            <g class="ef-verdict ef-verdict-good" transform="translate(85 142)">
+            <g>
+              <path class="ef-arrow" d="M120 66C127 80 126 96 119 110"/>
+              <path class="ef-arrowhead" d="M119 110l6-2.4-.6 7.2z"/>
+              <path class="ef-arrow" d="M104 138C94 145 78 145 67 137"/>
+              <path class="ef-arrowhead" d="M67 137l1.6 6.2-6.6-2.8z"/>
+              <path class="ef-arrow" d="M50 110C43 96 43 79 50 66"/>
+              <path class="ef-arrowhead" d="M50 66l-6 2.2.4-7.2z"/>
+            </g>
+            <g class="ef-verdict ef-verdict-good" transform="translate(85 170)">
               <circle cx="-26" cy="-3" r="5.4"/><path d="M-28.6-3l2 2.2 3.8-4.4"/>
               <text x="-17" y="0">Clean</text>
             </g>
           </svg>
           <div class="ef-stage-label" aria-hidden="true">
-            <span class="t1">Before &mdash; soiled glaze</span>
+            <span class="t1">Before &mdash; ten marks, both bowls</span>
             <span class="t2">Flushing</span>
             <span class="t3">After &mdash; nothing left</span>
           </div>
           <figcaption>
             <b>Rimless Spinno</b>
-            <span>No overhang to hide anything. The water sweeps the full circumference of glaze you can see, and what it touches is what a cloth can reach too.</span>
+            <span>One inlet throws the water into a vortex that travels the whole way round the bowl. There is no overhang, so every millimetre it sweeps is glaze you can also reach.</span>
           </figcaption>
         </figure>
       </div>

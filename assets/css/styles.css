@@ -1072,17 +1072,28 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   0%,100%{opacity:.8}
 }
 
-/* the flush itself, sweeping round the bowl */
+/* Spinno: the flush travels round the whole perimeter of the bowl */
 .ef-sweep{fill:none;stroke:#4FC4DC;stroke-linecap:round;
   filter:drop-shadow(0 0 4px rgba(79,196,220,.6));
   animation:efSweepRun var(--cycle,9s) ease-in-out infinite,
-            efSweepGo 1.5s linear infinite}
-.ef-sweep.s2{animation-delay:0s,-.5s}
-.ef-sweep.s3{animation-delay:0s,-1s}
+            efSweepGo 2s linear infinite}
+.ef-sweep.s2{animation-delay:0s,-.66s}
+.ef-sweep.s3{animation-delay:0s,-1.33s}
 @keyframes efSweepRun{
   0%,18%{opacity:0} 26%,56%{opacity:1} 66%,100%{opacity:0}
 }
-@keyframes efSweepGo{to{stroke-dashoffset:-160}}
+@keyframes efSweepGo{to{stroke-dashoffset:-276}}
+
+/* Conventional wash-down: water falls from the rim straight down the walls,
+   it does not travel round — which is the whole reason the rim keeps its grime */
+.ef-fall{fill:none;stroke:#4FC4DC;stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:13 26;
+  filter:drop-shadow(0 0 4px rgba(79,196,220,.55));
+  animation:efSweepRun var(--cycle,9s) ease-in-out infinite,
+            efFallGo 1.1s linear infinite}
+.ef-fall.f2{animation-delay:0s,-.37s}
+.ef-fall.f3{animation-delay:0s,-.73s}
+@keyframes efFallGo{to{stroke-dashoffset:-39}}
 
 /* direction arrows, as on a flush diagram */
 .ef-arrow{fill:none;stroke:#15564E;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;
@@ -1123,7 +1134,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   /* hold the finished state: one bowl clean, the other not */
   .ef-soil-open{animation:none;opacity:0}
   .ef-soil-trapped{animation:none;opacity:.8}
-  .ef-sweep,.ef-arrow,.ef-arrowhead{animation:none;opacity:0}
+  .ef-sweep,.ef-fall,.ef-arrow,.ef-arrowhead{animation:none;opacity:0}
   .ef-verdict{animation:none;opacity:1}
   .ef-stage-label .t1,.ef-stage-label .t2{animation:none;opacity:0}
   .ef-stage-label .t3{animation:none;opacity:1}
