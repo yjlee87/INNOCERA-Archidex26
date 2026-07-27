@@ -17,3 +17,10 @@ Untitled*.png
 Screenshot*.png
 /*.textClipping
 Screenshot*
+
+# soundtrack + render sources for the exhibition video — local only, never served
+/*.mp3
+/*.wav
+/*.m4a
+/*.mp4
+/*.mov
