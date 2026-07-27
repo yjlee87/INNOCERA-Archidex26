@@ -1055,15 +1055,79 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ef-fig.is-key figcaption b{color:var(--gold)}
 .ef-fig figcaption span{display:block;font-size:.84rem;color:var(--ink-dim);line-height:1.55}
 
-/* line-art tokens — the ceramic is drawn as a thick stroked centreline, so the
-   stroke itself reads as the wall in section */
-.ef-wall{fill:none;stroke:rgba(236,230,218,.55);stroke-width:6;
+/* ---- looking down into the bowl: soiled, flushed, and what is left after ----
+   One 9s cycle, both panels in step, so the two results land side by side. */
+.ef-bowlfig svg{display:block;width:100%;height:auto;overflow:visible}
+.ef-hatchband{stroke:rgba(90,102,102,.55);stroke-width:1.1}
+
+/* the grime. Spots on open glaze wash away; spots tucked under a rim overhang
+   are never touched by the water and are still there when it stops. */
+.ef-soil{fill:#8E7B55}
+.ef-soil-open{animation:efWashed var(--cycle,9s) ease-in-out infinite}
+.ef-soil-trapped{animation:efStuck var(--cycle,9s) ease-in-out infinite}
+@keyframes efWashed{
+  0%,24%{opacity:.8} 44%,100%{opacity:0}
+}
+@keyframes efStuck{
+  0%,100%{opacity:.8}
+}
+
+/* the flush itself, sweeping round the bowl */
+.ef-sweep{fill:none;stroke:#4FC4DC;stroke-linecap:round;
+  filter:drop-shadow(0 0 4px rgba(79,196,220,.6));
+  animation:efSweepRun var(--cycle,9s) ease-in-out infinite,
+            efSweepGo 1.5s linear infinite}
+.ef-sweep.s2{animation-delay:0s,-.5s}
+.ef-sweep.s3{animation-delay:0s,-1s}
+@keyframes efSweepRun{
+  0%,18%{opacity:0} 26%,56%{opacity:1} 66%,100%{opacity:0}
+}
+@keyframes efSweepGo{to{stroke-dashoffset:-160}}
+
+/* direction arrows, as on a flush diagram */
+.ef-arrow{fill:none;stroke:#15564E;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;
+  animation:efArrow var(--cycle,9s) ease-in-out infinite}
+.ef-arrowhead{fill:#15564E;animation:efArrow var(--cycle,9s) ease-in-out infinite}
+@keyframes efArrow{
+  0%,18%{opacity:0} 26%,56%{opacity:.95} 66%,100%{opacity:0}
+}
+
+/* the verdict, once the water has gone */
+.ef-verdict{animation:efVerdict var(--cycle,9s) ease-in-out infinite}
+@keyframes efVerdict{
+  0%,64%{opacity:0} 74%,96%{opacity:1} 100%{opacity:0}
+}
+.ef-verdict-good text{fill:#3FBFA6}
+.ef-verdict-bad text{fill:#C7A253}
+.ef-verdict text{font-family:'Archivo',sans-serif;font-size:7px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase}
+.ef-verdict-good path,.ef-verdict-good circle{stroke:#3FBFA6}
+.ef-verdict-bad path,.ef-verdict-bad circle{stroke:#C7A253}
+.ef-verdict path,.ef-verdict circle{fill:none;stroke-width:1.7;
   stroke-linecap:round;stroke-linejoin:round}
-.ef-waterline{fill:rgba(127,227,220,.18);stroke:rgba(127,227,220,.45);stroke-width:1.2}
-.ef-hidden-water{stroke:rgba(127,227,220,.5);stroke-width:2.6;stroke-linecap:round;fill:none}
-.ef-hatchband{stroke:rgba(236,230,218,.34);stroke-width:1.1}
-/* seat, pedestal and floor — context only, so the cut reads as a closet */
-.ef-outline{fill:none;stroke:rgba(236,230,218,.22);stroke-width:3;stroke-linecap:round}
+
+/* stage caption tracks the same cycle */
+.ef-stage-label{position:relative;margin-top:14px;height:1.1em;
+  font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.ef-stage-label span{position:absolute;inset:0;opacity:0;
+  animation:var(--cycle,9s) ease-in-out infinite}
+.ef-stage-label .t1{animation-name:efLab1}
+.ef-stage-label .t2{animation-name:efLab2}
+.ef-stage-label .t3{animation-name:efLab3}
+@keyframes efLab1{0%,16%{opacity:1} 22%,100%{opacity:0}}
+@keyframes efLab2{0%,20%{opacity:0} 26%,56%{opacity:1} 62%,100%{opacity:0}}
+@keyframes efLab3{0%,64%{opacity:0} 72%,96%{opacity:1} 100%{opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  /* hold the finished state: one bowl clean, the other not */
+  .ef-soil-open{animation:none;opacity:0}
+  .ef-soil-trapped{animation:none;opacity:.8}
+  .ef-sweep,.ef-arrow,.ef-arrowhead{animation:none;opacity:0}
+  .ef-verdict{animation:none;opacity:1}
+  .ef-stage-label .t1,.ef-stage-label .t2{animation:none;opacity:0}
+  .ef-stage-label .t3{animation:none;opacity:1}
+}
 /* the full path stays visible so the route reads even when paused */
 .ef-water-guide{fill:none;stroke:rgba(127,227,220,.2);stroke-width:2.6;stroke-linecap:round}
 .ef-water{fill:none;stroke:#7FE3DC;stroke-width:2.6;stroke-linecap:round;
